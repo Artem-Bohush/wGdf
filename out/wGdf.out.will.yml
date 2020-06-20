@@ -3,26 +3,27 @@ root:
   - wGdf.out
 consistency:
   wGdf.out.will.yml: &ref_0
-    hash: 3916790f5f538fa14a77eac4b04f9b5f
-    size: 42201
+    hash: 3caa280ee04de9abcc667fe4f1288692
+    size: 41905
   ../.ex.will.yml: &ref_1
-    hash: 9eba7645744b57cdfc4abde2755daf6a
-    size: 2027
+    hash: 242cde9bb094797aae061a3e0cd7895e
+    size: 2079
   ../.im.will.yml: &ref_2
-    hash: f260b52ccb1cfa64e12042f3763b828e
-    size: 5683
+    hash: 2a7ae6331e1d66a0f34b73d668c17c29
+    size: 5785
 module:
   wGdf.out:
     about:
       name: wGdf
       org: noorg
       description: >-
-        Collection of strategies to convert complex data structures from one GDF
-        ( generic data format ) to another GDF. You may use the module to
-        serialize complex data structure to string or deserialize string back to
-        the original data structure. Generic data format ( GDF ) is a format of
-        data structure designed with taking into account none unique feature of
-        data so that it is applicable to any kind of data.
+        Standardized abstract interface and collection of strategies to convert
+        complex data structures from one generic data format ( GDF ) to another
+        generic data format. You may use the module to serialize complex data
+        structure to string or deserialize string back to the original data
+        structure. Generic data format ( GDF ) is a format of data structure
+        designed with taking into account none unique feature of data so that it
+        is applicable to any kind of data.
       enabled: 1
       version: 0.4.0
       interpreters:
@@ -160,18 +161,37 @@ module:
           export: 1
         path:
           - ../proto
+          - ../proto/Integration.test.s
           - ../proto/dwtools
           - ../proto/dwtools/Tools.s
           - ../proto/dwtools/abase
           - ../proto/dwtools/amid
           - ../proto/dwtools/amid/l1
           - ../proto/dwtools/amid/l1/gdf
+          - ../proto/dwtools/amid/l1/gdf/Base64.s
+          - ../proto/dwtools/amid/l1/gdf/Bson.s
+          - ../proto/dwtools/amid/l1/gdf/Cbor.s
+          - ../proto/dwtools/amid/l1/gdf/Coffee.s
           - ../proto/dwtools/amid/l1/gdf/Converter.s
           - ../proto/dwtools/amid/l1/gdf/Current.s
           - ../proto/dwtools/amid/l1/gdf/Formats.s
+          - ../proto/dwtools/amid/l1/gdf/Json.s
+          - ../proto/dwtools/amid/l1/gdf/JsStructure.s
+          - ../proto/dwtools/amid/l1/gdf/MsgpackLiteWtp.s
+          - ../proto/dwtools/amid/l1/gdf/Yml.s
           - ../proto/dwtools/amid/l1/gdf.test
+          - ../proto/dwtools/amid/l1/gdf.test/Base64.test.s
+          - ../proto/dwtools/amid/l1/gdf.test/Bson.test.s
+          - ../proto/dwtools/amid/l1/gdf.test/Cbor.test.s
+          - ../proto/dwtools/amid/l1/gdf.test/Cson.test.s
           - ../proto/dwtools/amid/l1/gdf.test/Gdf.test.s
           - ../proto/dwtools/amid/l1/gdf.test/GdfPerfomance.test.s
+          - ../proto/dwtools/amid/l1/gdf.test/Js.test.s
+          - ../proto/dwtools/amid/l1/gdf.test/Json.test.s
+          - ../proto/dwtools/amid/l1/gdf.test/JsonFine.test.s
+          - ../proto/dwtools/amid/l1/gdf.test/JsonMin.test.s
+          - ../proto/dwtools/amid/l1/gdf.test/Utf8.test.s
+          - ../proto/dwtools/amid/l1/gdf.test/Yml.test.s
           - ../proto/dwtools/atop
     submodule:
       wTools:
@@ -232,6 +252,12 @@ module:
         enabled: 0
         criterion:
           development: 1
+      eslint:
+        path: 'npm:///eslint#7.1.0'
+        autoExporting: 0
+        enabled: 0
+        criterion:
+          debug: 1
     reflector:
       reflect.proto.debug.raw:
         src:
@@ -240,9 +266,6 @@ module:
           prefixPath: ''
         dst:
           prefixPath: ''
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: no.tests
           debug: debug
@@ -257,9 +280,6 @@ module:
           prefixPath: ''
         dst:
           prefixPath: ''
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: no.tests
           debug: release
@@ -274,9 +294,6 @@ module:
           prefixPath: ''
         dst:
           prefixPath: ''
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: no.tests
           debug: debug
@@ -291,9 +308,6 @@ module:
           prefixPath: ''
         dst:
           prefixPath: ''
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: no.tests
           debug: release
@@ -308,9 +322,6 @@ module:
           prefixPath: ''
         dst:
           prefixPath: ''
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           raw: raw
           debug: release
@@ -326,9 +337,6 @@ module:
           prefixPath: ''
         dst:
           prefixPath: ''
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: no.tests
           raw: compiled
@@ -345,9 +353,6 @@ module:
           prefixPath: ''
         dst:
           prefixPath: ''
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: no.tests
           raw: compiled
@@ -363,9 +368,6 @@ module:
           prefixPath: ''
         dst:
           prefixPath: ''
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: only.tests
           raw: compiled
@@ -381,9 +383,6 @@ module:
           prefixPath: ''
         dst:
           prefixPath: ''
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: only.tests
           raw: compiled
@@ -411,9 +410,6 @@ module:
           prefixPath: 'path::exported.dir.proto.export'
           recursive: 0
         recursive: 0
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           generated: 1
           content: proto
@@ -883,12 +879,13 @@ module:
       name: wGdf
       org: noorg
       description: >-
-        Collection of strategies to convert complex data structures from one GDF
-        ( generic data format ) to another GDF. You may use the module to
-        serialize complex data structure to string or deserialize string back to
-        the original data structure. Generic data format ( GDF ) is a format of
-        data structure designed with taking into account none unique feature of
-        data so that it is applicable to any kind of data.
+        Standardized abstract interface and collection of strategies to convert
+        complex data structures from one generic data format ( GDF ) to another
+        generic data format. You may use the module to serialize complex data
+        structure to string or deserialize string back to the original data
+        structure. Generic data format ( GDF ) is a format of data structure
+        designed with taking into account none unique feature of data so that it
+        is applicable to any kind of data.
       enabled: 1
       version: 0.4.0
       interpreters:
@@ -1072,14 +1069,17 @@ module:
         enabled: 0
         criterion:
           development: 1
+      eslint:
+        path: 'npm:///eslint#7.1.0'
+        autoExporting: 0
+        enabled: 0
+        criterion:
+          debug: 1
     reflector:
       reflect.proto.debug.raw:
         src:
           filePath:
             'path::proto': '{path::out.*=1}/source'
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: no.tests
           debug: debug
@@ -1091,9 +1091,6 @@ module:
         src:
           filePath:
             'path::proto': '{path::out.*=1}/source'
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: no.tests
           debug: release
@@ -1105,9 +1102,6 @@ module:
         src:
           filePath:
             'path::proto': '{path::out.*=1}/source'
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: no.tests
           debug: debug
@@ -1119,9 +1113,6 @@ module:
         src:
           filePath:
             'path::proto': '{path::out.*=1}/source'
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: no.tests
           debug: release
@@ -1133,9 +1124,6 @@ module:
         src:
           filePath:
             'path::proto': '{path::out.raw.release}'
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           raw: raw
           debug: release
@@ -1148,9 +1136,6 @@ module:
             '**.test*': 0
             '**.test/**': 0
             'path::proto': '{path::out.*=1}/Main.s'
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: no.tests
           raw: compiled
@@ -1164,9 +1149,6 @@ module:
             '**.test*': 0
             '**.test/**': 0
             'path::proto': '{path::out.*=1}/Main.s'
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: no.tests
           raw: compiled
@@ -1179,9 +1161,6 @@ module:
           filePath:
             '**.test*': 1
             'path::proto': '{path::out.*=1}/Tests.test.s'
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: only.tests
           raw: compiled
@@ -1194,9 +1173,6 @@ module:
           filePath:
             '**.test*': 1
             'path::proto': '{path::out.*=1}/Tests.test.s'
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
         criterion:
           tests: only.tests
           raw: compiled
@@ -1631,11 +1607,9 @@ module:
           - 'build::npm'
     consistency:
       ../.ex.will.yml:
-        hash: 9eba7645744b57cdfc4abde2755daf6a
-        size: 2027
+        hash: 242cde9bb094797aae061a3e0cd7895e
+        size: 2079
       ../.im.will.yml:
-        hash: f260b52ccb1cfa64e12042f3763b828e
-        size: 5683
-      wGdf.out.will.yml:
-        hash: 3916790f5f538fa14a77eac4b04f9b5f
-        size: 42201
+        hash: 2a7ae6331e1d66a0f34b73d668c17c29
+        size: 5785
+      wGdf.out.will.yml: *ref_0

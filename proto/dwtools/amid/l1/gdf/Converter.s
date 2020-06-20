@@ -1,9 +1,10 @@
-(function _Converter_s_() {
+(function _Converter_s_()
+{
 
 'use strict';
 
 /**
- * Collection of strategies to convert complex data structures from one GDF ( generic data format ) to another GDF. You may use the module to serialize complex data structure to string or deserialize string back to the original data structure. Generic data format ( GDF ) is a format of data structure designed with taking into account none unique feature of data so that it is applicable to any kind of data.
+ * Standardized abstract interface and collection of strategies to convert complex data structures from one generic data format ( GDF ) to another generic data format. You may use the module to serialize complex data structure to string or deserialize string back to the original data structure. Generic data format ( GDF ) is a format of data structure designed with taking into account none unique feature of data so that it is applicable to any kind of data.
   @module Tools/base/Converter
 */
 
@@ -31,7 +32,8 @@ if( typeof module !== 'undefined' )
 let _global = _global_;
 let _ = _global_.wTools;
 let Parent = null;
-let Self = function wGenericDataFormatConverter( o )
+let Self = wGenericDataFormatConverter;
+function wGenericDataFormatConverter( o )
 {
   return _.workpiece.construct( Self, this, arguments );
 }
@@ -321,7 +323,7 @@ function Select( selector )
   if( result.length > 1 )
   if( selector.default !== undefined )
   {
-    result = result.filter( ( e ) => selector.default == e.default );
+    result = result.filter( ( e ) => selector.default === e.default );
   }
 
   result = result.map( ( e ) => _.mapExtend( null, selector, { encoder : e } ) );
@@ -370,7 +372,7 @@ function Select( selector )
  * @module Tools/base/Converter
  */
 
- /**
+/**
  * @summary Contains descriptors of registered converters mapped by inptut format.
  * @property {Object} InMap
  * @static
@@ -379,7 +381,7 @@ function Select( selector )
  * @module Tools/base/Converter
  */
 
- /**
+/**
  * @summary Contains descriptors of registered converters mapped by out format.
  * @property {Object} OutMap
  * @static
@@ -397,7 +399,7 @@ function Select( selector )
  * @module Tools/base/Converter
  */
 
- /**
+/**
  * @summary Contains descriptors of registered converters mapped by in/out format.
  * @property {Object} InOutMap
  * @static
